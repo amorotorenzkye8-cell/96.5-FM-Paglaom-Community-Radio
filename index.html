@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGLAOM COMMUNITY RADIO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    /* Top bar buttons */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      transition: background 0.3s;
+    }
+
+    .menu-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-btn div {
+      width: 100%;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    #contactBtn { left: 20px; }
+    #aboutBtn { right: 20px; }
+
+    /* Popup boxes */
+    .popup {
+      position: absolute;
+      top: 60px;
+      background: rgba(30, 58, 138, 0.95);
+      padding: 20px;
+      border-radius: 12px;
+      width: 240px;
+      color: #e0e7ff;
+      display: none;
+      font-size: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    #contactPopup { left: 20px; }
+    #aboutPopup { right: 20px; }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .station-name {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 5px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .tagline {
+      font-size: 16px;
+      color: #e0e7ff;
+      margin-bottom: 25px;
+      font-weight: 300;
+    }
+
+    .soundwave {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 60px;
+      margin-bottom: 30px;
+    }
+
+    .bar {
+      width: 8px;
+      background: linear-gradient(to top, #60a5fa, #2563eb);
+      border-radius: 4px;
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .bar:nth-child(1) { animation-delay: 0s; height: 40%; }
+    .bar:nth-child(2) { animation-delay: 0.1s; height: 60%; }
+    .bar:nth-child(3) { animation-delay: 0.2s; height: 80%; }
+    .bar:nth-child(4) { animation-delay: 0.3s; height: 100%; }
+    .bar:nth-child(5) { animation-delay: 0.4s; height: 70%; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.4); }
+    }
+
+    .play-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+    }
+
+    .play-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(37, 99, 235, 0.5);
+    }
+
+    .play-icon {
+      width: 0;
+      height: 0;
+      border-left: 15px solid white;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+    }
+
+    .pause-icon {
+      display: flex;
+      gap: 4px;
+    }
+
+    .pause-icon div {
+      width: 5px;
+      height: 18px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Left & Right Menus -->
+  <div id="contactBtn" class="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+
+  <div id="aboutBtn" class="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+
+  <!-- Popups -->
+  <div id="contactPopup" class="popup">
+    <p>📞 +63 912 913 6490</p>
+    <p>📧 paglaomfm@gmail.com</p>
+    <p>🌐 fb.com/PaglaomCommunityRadio</p>
+  </div>
+
+  <div id="aboutPopup" class="popup">
+    <p><strong>About:</strong></p>
+    <p>Paglaom Community Radio – sharing the Gospel, uplifting songs, and inspiring community development.</p>
+  </div>
+
+  <!-- Center content -->
+  <div class="logo">
+    <img src="paglaomlogo.jpg" alt="PAGLAOM RADIO">
+  </div>
+
+  <h1 class="station-name">PAGLAOM COMMUNITY RADIO</h1>
+  <p class="tagline">Your Good News Radio</p>
+
+  <div class="soundwave" id="soundwave">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div>
+  </div>
+
+  <button class="play-button" id="playButton" onclick="toggleRadio()">
+    <span id="buttonText">LISTEN LIVE</span>
+    <div id="buttonIcon" class="play-icon"></div>
+  </button>
+
+  <audio id="radioPlayer" preload="none" src="https://corsproxy.io/?http://212.84.160.3:6247/;stream.mp3"></audio>
+
+  <footer>© 2024 PAGLAOM COMMUNITY RADIO</footer>
+
+  <script>
+    const player = document.getElementById('radioPlayer');
+    const button = document.getElementById('playButton');
+    const buttonText = document.getElementById('buttonText');
+    const buttonIcon = document.getElementById('buttonIcon');
+    const bars = document.querySelectorAll('.bar');
+    const contactBtn = document.getElementById('contactBtn');
+    const aboutBtn = document.getElementById('aboutBtn');
+    const contactPopup = document.getElementById('contactPopup');
+    const aboutPopup = document.getElementById('aboutPopup');
+
+    function toggleRadio() {
+      if (player.paused) {
+        player.play();
+        buttonText.textContent = 'PAUSE';
+        buttonIcon.innerHTML = '';
+        buttonIcon.classList.remove('play-icon');
+        buttonIcon.classList.add('pause-icon');
+        buttonIcon.innerHTML = '<div></div><div></div>';
+        bars.forEach(bar => bar.style.animationPlayState = 'running');
+      } else {
+        player.pause();
+        buttonText.textContent = 'LISTEN LIVE';
+        buttonIcon.classList.remove('pause-icon');
+        buttonIcon.classList.add('play-icon');
+        buttonIcon.innerHTML = '';
+        bars.forEach(bar => bar.style.animationPlayState = 'paused');
+      }
+    }
+
+    contactBtn.addEventListener('click', () => {
+      contactPopup.style.display = contactPopup.style.display === 'block' ? 'none' : 'block';
+      aboutPopup.style.display = 'none';
+    });
+
+    aboutBtn.addEventListener('click', () => {
+      aboutPopup.style.display = aboutPopup.style.display === 'block' ? 'none' : 'block';
+      contactPopup.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
